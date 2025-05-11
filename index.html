@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Engineering Learning Portal</title>
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Highlight.js for code syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+    <!-- Marked for Markdown rendering -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar Navigation -->
+        <aside class="sidebar" id="sidebar">
+            <div class="sidebar-header">
+                <a href="index.html" class="home-button" title="Home" style="margin-right: 10px;">
+                    <i class="fas fa-home"></i>
+                </a>
+                <h1>Learning Portal</h1>
+                <button id="sidebar-toggle" class="sidebar-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+            
+            <div class="user-progress">
+                <div class="progress-circle">
+                    <div class="progress-circle-inner">
+                        <span id="progress-percentage">0%</span>
+                    </div>
+                </div>
+                <div class="progress-text">
+                    <span>Your Progress</span>
+                    <span id="completed-modules">0/8 Modules</span>
+                </div>
+            </div>
+            
+            <nav class="module-navigation" id="module-navigation">
+                <!-- Module links will be dynamically added here -->
+            </nav>
+        </aside>
+
+        <!-- Main Content Area -->
+        <main class="main-content">
+            <header class="content-header">
+                <div class="breadcrumb" id="breadcrumb">
+                    <!-- Breadcrumb navigation will be added here -->
+                </div>
+                <div class="lesson-controls">
+                    <button id="previous-lesson" class="nav-button" disabled>
+                        <i class="fas fa-arrow-left"></i> Previous
+                    </button>
+                    <button id="next-lesson" class="nav-button">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </header>
+            
+            <section class="content-area" id="content-area">
+                <!-- Lesson content will be loaded here -->
+                <div class="welcome-screen">
+                    <h1>Welcome to Your Software Engineering Learning Portal</h1>
+                    <p>Start your structured learning journey with interactive exercises and progress tracking.</p>
+                    
+                    <div class="tech-tracks">
+                        <div class="track-card">
+                            <h3>Technology Track</h3>
+                            <div class="tech-icons">
+                                <div class="tech-icon">
+                                    <i class="fab fa-vuejs fa-2x" style="color:#42b883;"></i>
+                                    <span>Vue.js</span>
+                                </div>
+                                <div class="tech-icon">
+                                    <i class="fas fa-code fa-2x" style="color:#68217A;"></i>
+                                    <span>C#</span>
+                                </div>
+                                <div class="tech-icon">
+                                    <i class="fas fa-database fa-2x" style="color:#003B57;"></i>
+                                    <span>SQLite</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="getting-started">
+                        <h2>Getting Started</h2>
+                        <p>Choose a module from the sidebar to begin your learning journey!</p>
+                        <button id="start-learning" class="cta-button">Start Learning</button>
+                    </div>
+                </div>
+            </section>
+            
+            <div class="content-footer">
+                <div class="lesson-status" id="lesson-status">
+                    <!-- Lesson completion status -->
+                </div>
+                <div class="action-buttons">
+                    <button id="mark-complete" class="action-button">
+                        <i class="fas fa-check"></i> Mark as Complete
+                    </button>
+                </div>
+            </div>
+        </main>
+    
+    <!-- Modal for code exercises -->
+    <div class="modal" id="exercise-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="exercise-title">Exercise</h2>
+                <button id="close-modal" class="close-modal">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="exercise-description" id="exercise-description">
+                    <!-- Exercise description will be loaded here -->
+                </div>
+                <div class="code-editor-container">
+                    <div class="editor-tabs">
+                        <button class="editor-tab active" data-tab="code">Code</button>
+                        <button class="editor-tab" data-tab="preview">Preview</button>
+                        <button class="editor-tab" data-tab="tests">Tests</button>
+                    </div>
+                    <div class="editor-content">
+                        <div class="editor-pane active" id="code-pane">
+                            <textarea id="code-editor"></textarea>
+                        </div>
+                        <div class="editor-pane" id="preview-pane">
+                            <iframe id="preview-frame"></iframe>
+                        </div>
+                        <div class="editor-pane" id="tests-pane">
+                            <div id="test-results"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="exercise-controls">
+                    <button id="run-code" class="exercise-button">
+                        <i class="fas fa-play"></i> Run Code
+                    </button>
+                    <button id="run-tests" class="exercise-button">
+                        <i class="fas fa-vial"></i> Run Tests
+                    </button>
+                    <button id="submit-exercise" class="exercise-button primary">
+                        <i class="fas fa-check"></i> Submit Exercise
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/curriculum-data.js"></script>
+    <script src="js/progress-tracker.js"></script>
+    <script src="js/content-loader.js"></script>
+    <script src="js/exercise-handler.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
